@@ -4,6 +4,7 @@ import { Button } from "~/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "~/components/ui/sheet";
 import { Github, Linkedin, Menu, Mountain } from "lucide-react";
 import { useState } from "react";
+import { motion } from "motion/react";
 
 const App = () => {
   return (
@@ -109,16 +110,33 @@ const Header = () => {
 };
 
 const Hero = () => (
-  <section id="hero" className="p-4">
+  <motion.section
+    id="hero"
+    className="p-4"
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, ease: "easeOut" }}
+  >
     <div className="flex flex-col items-center gap-4 text-center">
-      <Avatar className="h-32 w-32">
-        <AvatarImage
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtGVjQIqp-Z7shPjRJ3Npo8lKCMB40CLS37Wm2Qm6kjLRgqmxUpkKRxbtxjHL9HebR1zGNJXnlaDNmJry-OGRyttidDIBDjiWLMiCAG9JI0-_duW0PRdytpd-POOmJ0-QxuUHA004UHc01E1mpd4kKSy6BfZIdJqGu9mV5Ode1gYDLfQd3fXh2A2Byqc2ISvuQG0niZHJwxSmU73uvdUAzc9DLS4tPJ5xvHwhTFOO9Gg_0mikzIkrQwS25souc6FU83HKSXgQQ3F8M"
-          alt="Liam Harper"
-        />
-        <AvatarFallback>LH</AvatarFallback>
-      </Avatar>
-      <div className="flex flex-col items-center justify-center">
+      <motion.div
+        initial={{ scale: 0.8 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <Avatar className="h-32 w-32">
+          <AvatarImage
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtGVjQIqp-Z7shPjRJ3Npo8lKCMB40CLS37Wm2Qm6kjLRgqmxUpkKRxbtxjHL9HebR1zGNJXnlaDNmJry-OGRyttidDIBDjiWLMiCAG9JI0-_duW0PRdytpd-POOmJ0-QxuUHA004UHc01E1mpd4kKSy6BfZIdJqGu9mV5Ode1gYDLfQd3fXh2A2Byqc2ISvuQG0niZHJwxSmU73uvdUAzc9DLS4tPJ5xvHwhTFOO9Gg_0mikzIkrQwS25souc6FU83HKSXgQQ3F8M"
+            alt="Liam Harper"
+          />
+          <AvatarFallback>LH</AvatarFallback>
+        </Avatar>
+      </motion.div>
+      <motion.div
+        className="flex flex-col items-center justify-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+      >
         <p className="text-2xl font-bold">Liam Harper</p>
         <p className="text-base text-[#adadad]">Software Engineer</p>
         <p className="mt-2 max-w-xl text-base text-[#adadad]">
@@ -126,13 +144,20 @@ const Hero = () => (
           solutions. Experienced in full-stack development, cloud computing, and
           machine learning.
         </p>
-      </div>
+      </motion.div>
     </div>
-  </section>
+  </motion.section>
 );
 
 const About = () => (
-  <section id="about" className="px-4 py-5">
+  <motion.section
+    id="about"
+    className="px-4 py-5"
+    initial={{ opacity: 0, x: -50 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.6 }}
+    viewport={{ once: true }}
+  >
     <h2 className="pb-3 text-2xl font-bold">About</h2>
     <p className="pb-3 pt-1 text-base text-white/90">
       I am a software engineer with 5+ years of experience in developing and
@@ -141,11 +166,18 @@ const About = () => (
       passionate about solving complex problems and creating impactful software
       solutions.
     </p>
-  </section>
+  </motion.section>
 );
 
 const WorkExperience = () => (
-  <section id="work-experience" className="px-4 py-5">
+  <motion.section
+    id="work-experience"
+    className="px-4 py-5"
+    initial={{ opacity: 0, x: 50 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.6 }}
+    viewport={{ once: true }}
+  >
     <h2 className="pb-3 text-2xl font-bold">Work Experience</h2>
     <div className="flex flex-col md:flex-row justify-between gap-4 rounded-lg p-4 bg-[#2a2a2a]">
       <div className="flex flex-1 flex-col justify-center">
@@ -161,11 +193,18 @@ const WorkExperience = () => (
         <p className="text-sm text-[#adadad]">2019 - Present</p>
       </div>
     </div>
-  </section>
+  </motion.section>
 );
 
 const Education = () => (
-  <section id="education" className="px-4 py-5">
+  <motion.section
+    id="education"
+    className="px-4 py-5"
+    initial={{ opacity: 0, x: -50 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.6 }}
+    viewport={{ once: true }}
+  >
     <h2 className="pb-3 text-2xl font-bold">Education</h2>
     <div className="flex flex-col md:flex-row justify-between gap-4 rounded-lg p-4 bg-[#2a2a2a]">
       <div className="flex flex-1 flex-col justify-center">
@@ -179,11 +218,18 @@ const Education = () => (
         <p className="text-sm text-[#adadad]">2015 - 2019</p>
       </div>
     </div>
-  </section>
+  </motion.section>
 );
 
 const LicensesAndCertifications = () => (
-  <section id="licenses-certifications" className="px-4 py-5">
+  <motion.section
+    id="licenses-certifications"
+    className="px-4 py-5"
+    initial={{ opacity: 0, x: 50 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.6 }}
+    viewport={{ once: true }}
+  >
     <h2 className="pb-3 text-2xl font-bold">Licenses & Certifications</h2>
     <div className="space-y-4">
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between rounded-lg p-4 bg-[#2a2a2a]">
@@ -199,11 +245,18 @@ const LicensesAndCertifications = () => (
         <p className="shrink-0 text-sm text-[#adadad] mt-1 md:mt-0">2022</p>
       </div>
     </div>
-  </section>
+  </motion.section>
 );
 
 const Skills = () => (
-  <section id="skills" className="px-4 py-5">
+  <motion.section
+    id="skills"
+    className="px-4 py-5"
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6 }}
+    viewport={{ once: true }}
+  >
     <h2 className="pb-3 text-2xl font-bold">Skills</h2>
     <div className="flex flex-wrap gap-2 p-3">
       {[
@@ -217,17 +270,24 @@ const Skills = () => (
         "NoSQL",
         "REST",
         "GraphQL",
-      ].map((skill) => (
-        <Badge
+      ].map((skill, index) => (
+        <motion.div
           key={skill}
-          variant="secondary"
-          className="bg-[#363636] text-white hover:bg-[#4a4a4a]"
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3, delay: index * 0.05 }}
+          viewport={{ once: true }}
         >
-          {skill}
-        </Badge>
+          <Badge
+            variant="secondary"
+            className="bg-[#363636] text-white hover:bg-[#4a4a4a]"
+          >
+            {skill}
+          </Badge>
+        </motion.div>
       ))}
     </div>
-  </section>
+  </motion.section>
 );
 
 const projects = [
@@ -249,11 +309,25 @@ const projects = [
 ];
 
 const Projects = () => (
-  <section id="projects" className="px-4 py-5">
+  <motion.section
+    id="projects"
+    className="px-4 py-5"
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6 }}
+    viewport={{ once: true }}
+  >
     <h2 className="pb-3 text-2xl font-bold">Projects</h2>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {projects.map((project, index) => (
-        <div key={index} className="flex flex-col gap-3 pb-3">
+        <motion.div
+          key={index}
+          className="flex flex-col gap-3 pb-3"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          viewport={{ once: true }}
+        >
           <div
             className="aspect-square w-full rounded-xl bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url("${project.image}")` }}
@@ -261,10 +335,10 @@ const Projects = () => (
           <p className="text-base font-medium text-center sm:text-left">
             {project.name}
           </p>
-        </div>
+        </motion.div>
       ))}
     </div>
-  </section>
+  </motion.section>
 );
 
 export default App;
