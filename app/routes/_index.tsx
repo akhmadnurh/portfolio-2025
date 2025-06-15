@@ -5,6 +5,7 @@ import { Sheet, SheetContent, SheetTrigger } from "~/components/ui/sheet";
 import { Github, Linkedin, Menu, Mountain } from "lucide-react";
 import { useState } from "react";
 import { motion } from "motion/react";
+import Projects from "~/components/moleculs/Projects";
 
 const App = () => {
   return (
@@ -308,37 +309,37 @@ const projects = [
   },
 ];
 
-const Projects = () => (
-  <motion.section
-    id="projects"
-    className="px-4 py-5"
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6 }}
-    viewport={{ once: true }}
-  >
-    <h2 className="pb-3 text-2xl font-bold">Projects</h2>
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {projects.map((project, index) => (
-        <motion.div
-          key={index}
-          className="flex flex-col gap-3 pb-3"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
-          viewport={{ once: true }}
-        >
-          <div
-            className="aspect-square w-full rounded-xl bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url("${project.image}")` }}
-          />
-          <p className="text-base font-medium text-center sm:text-left">
-            {project.name}
-          </p>
-        </motion.div>
-      ))}
-    </div>
-  </motion.section>
-);
+// const Projects = () => (
+//   <motion.section
+//     id="projects"
+//     className="px-4 py-5"
+//     initial={{ opacity: 0, y: 50 }}
+//     whileInView={{ opacity: 1, y: 0 }}
+//     transition={{ duration: 0.6 }}
+//     viewport={{ once: true }}
+//   >
+//     <h2 className="pb-3 text-2xl font-bold">Projects</h2>
+//     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+//       {projects.map((project, index) => (
+//         <motion.div
+//           key={index}
+//           className="flex flex-col gap-3 pb-3"
+//           initial={{ opacity: 0, y: 20 }}
+//           whileInView={{ opacity: 1, y: 0 }}
+//           transition={{ duration: 0.5, delay: index * 0.1 }}
+//           viewport={{ once: true }}
+//         >
+//           <div
+//             className="aspect-square w-full rounded-xl bg-cover bg-center bg-no-repeat"
+//             style={{ backgroundImage: `url("${project.image}")` }}
+//           />
+//           <p className="text-base font-medium text-center sm:text-left">
+//             {project.name}
+//           </p>
+//         </motion.div>
+//       ))}
+//     </div>
+//   </motion.section>
+// );
 
 export default App;
