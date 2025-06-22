@@ -17,7 +17,7 @@ export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#363636] px-4 md:px-10 py-3">
+    <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#363636] px-4 md:px-10 py-3 sticky top-0 bg-[#1a1a1a] z-10">
       <div className="flex items-center gap-4">
         <Mountain className="h-6 w-6" />
         <h1 className="text-lg font-bold">Portfolio</h1>

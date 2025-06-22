@@ -8,7 +8,7 @@ export const WorkExperiences = () => (
     transition={{ duration: 0.6 }}
     viewport={{ once: true }}
   >
-    <h2 className="pb-3 text-2xl font-bold">Work Experience</h2>
+    <h2 className="pb-3 text-2xl font-bold">Work Experiences</h2>
     <div className="flex flex-col md:flex-row justify-between gap-4 rounded-lg p-4 bg-[#2a2a2a]">
       <div className="flex flex-1 flex-col justify-center">
         <p className="text-base font-medium">Tech Solutions Inc.</p>

@@ -1,7 +1,8 @@
 import { motion } from "motion/react";
 import ProjectDialog from "~/components/molecules/Dialogs/project-dialog";
+import { TProject } from "~/interfaces/project.interface";
 
-const projects = [
+const projects: TProject[] = [
   {
     name: "E-commerce Platform",
     images: [
@@ -10,9 +11,9 @@ const projects = [
     ],
     description:
       "A full-stack e-commerce platform with user authentication, product management, and payment integration.",
-    techStack: ["React", "Node.js", "MongoDB", "Stripe", "Cloud Services"],
-    projectUrl: "https://ecommerce-example.com",
-    repoUrl: "https://github.com/liamharper/ecommerce-platform",
+    tech_stacks: ["React", "Node.js", "MongoDB", "Stripe", "Cloud Services"],
+    project_url: "https://ecommerce-example.com",
+    repo_url: "https://github.com/liamharper/ecommerce-platform",
   },
   {
     name: "Task Management Application",
@@ -22,9 +23,9 @@ const projects = [
     ],
     description:
       "A task management app with real-time collaboration and task prioritization features.",
-    techStack: ["React", "Firebase", "Node.js", "Express"],
-    projectUrl: "https://taskmanager-example.com",
-    repoUrl: "https://github.com/liamharper/task-manager",
+    tech_stacks: ["React", "Firebase", "Node.js", "Express"],
+    project_url: "https://taskmanager-example.com",
+    repo_url: null,
   },
   {
     name: "Blog Website",
@@ -34,9 +35,9 @@ const projects = [
     ],
     description:
       "A responsive blog platform with markdown support and user comments.",
-    techStack: ["Next.js", "Markdown", "PostgreSQL", "Prisma"],
-    projectUrl: "https://blog-example.com",
-    repoUrl: "https://github.com/liamharper/blog-website",
+    tech_stacks: ["Next.js", "Markdown", "PostgreSQL", "Prisma"],
+    project_url: null,
+    repo_url: "https://github.com/liamharper/blog-website",
   },
 ];
 

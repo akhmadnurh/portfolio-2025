@@ -1,5 +1,5 @@
 import Projects from "~/components/organisms/Projects";
-import { MetaFunction } from "@remix-run/react";
+import { MetaFunction, useRouteError } from "@remix-run/react";
 import { Skills } from "~/components/organisms/Skills";
 import { Header } from "~/components/organisms/Header";
 import { Hero } from "~/components/organisms/Hero";
@@ -7,9 +7,16 @@ import { About } from "~/components/organisms/About";
 import { WorkExperiences } from "~/components/organisms/WorkExperiences";
 import { Educations } from "~/components/organisms/Educations";
 import { LicensesAndCertifications } from "~/components/organisms/LicensesAndCertifications";
-
+import { ErrorPage } from "~/components/organisms/Error";
 export const meta: MetaFunction = () => {
-  return [{ title: "Akhmad Nur H" }];
+  return [{ title: "My Portfolio" }];
+};
+
+export const loader = async () => {
+  // throw new Error(
+  //   "The JSON data could not be loaded. Make sure it exists and the format is correct."
+  // );
+  return {};
 };
 
 const App = () => {
@@ -28,6 +35,16 @@ const App = () => {
         </div>
       </main>
     </div>
+  );
+};
+
+export const ErrorBoundary = () => {
+  const error = useRouteError();
+
+  return (
+    <ErrorPage
+      error={error instanceof Error ? error : new Error("Something went wrong")}
+    />
   );
 };
 

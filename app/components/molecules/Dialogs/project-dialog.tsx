@@ -16,11 +16,11 @@ import {
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
-import { IProject } from "~/interfaces/project.interface";
+import { TProject } from "~/interfaces/project.interface";
 
 interface IProps {
   index: number;
-  project: IProject;
+  project: TProject;
 }
 
 const ProjectDialog = ({ index, project }: IProps) => {
@@ -65,7 +65,7 @@ const ProjectDialog = ({ index, project }: IProps) => {
           </Carousel>
           <p className="text-[#adadad]">{project.description}</p>
           <div className="flex flex-wrap gap-2">
-            {project.techStack.map((tech: string, techIndex: number) => (
+            {project.tech_stacks.map((tech: string, techIndex: number) => (
               <Badge
                 key={`project-tech-${techIndex + 1}`}
                 variant="secondary"
@@ -76,32 +76,38 @@ const ProjectDialog = ({ index, project }: IProps) => {
             ))}
           </div>
           <div className="flex gap-4 pt-4">
-            <Button
-              className="text-white border-[#363636] hover:bg-[#363636]"
-              asChild
-            >
-              <a
-                href={project.projectUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+            {project.project_url && (
+              <Button
+                className="text-white border-[#363636] hover:bg-[#363636]"
+                asChild
+                disabled={!project.project_url}
               >
-                <ExternalLink className="h-4 w-4 mr-2" />
-                View Project
-              </a>
-            </Button>
-            <Button
-              className="text-white border-[#363636] hover:bg-[#363636] "
-              asChild
-            >
-              <a
-                href={project.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                <a
+                  href={project.project_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ExternalLink className="h-4 w-4 mr-2" />
+                  View Project
+                </a>
+              </Button>
+            )}
+            {project.repo_url && (
+              <Button
+                className="text-white border-[#363636] hover:bg-[#363636] "
+                asChild
+                disabled={!project.repo_url}
               >
-                <Github className="h-4 w-4 mr-2" />
-                Repository
-              </a>
-            </Button>
+                <a
+                  href={project.repo_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="h-4 w-4 mr-2" />
+                  Repository
+                </a>
+              </Button>
+            )}
           </div>
         </div>
       </DialogContent>
