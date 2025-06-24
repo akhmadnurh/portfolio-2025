@@ -4,7 +4,7 @@ export const CWorkExperience = zod.object({
   company: zod.string(),
   position: zod.string(),
   period: zod.string(),
-  description: zod.string().or(zod.null()),
+  descriptions: zod.array(zod.string()),
 });
 
 export type IWorkExperience = zod.infer<typeof CWorkExperience>;

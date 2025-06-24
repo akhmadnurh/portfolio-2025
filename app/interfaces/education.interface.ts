@@ -5,5 +5,4 @@ export const CEducation = zod.object({
   degree: zod.string().or(zod.null()),
   gpa: zod.string().or(zod.null()),
   period: zod.string(),
-  description: zod.string().or(zod.null()),
 });

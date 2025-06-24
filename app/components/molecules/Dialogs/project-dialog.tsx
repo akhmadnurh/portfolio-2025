@@ -50,7 +50,7 @@ const ProjectDialog = ({ index, project }: IProps) => {
         <div className="space-y-4">
           <Carousel className="w-full">
             <CarouselContent>
-              {project.images.map((image: string, imgIndex: number) => (
+              {project.images?.map((image: string, imgIndex: number) => (
                 <CarouselItem key={`project-image-${imgIndex + 1}`}>
                   <img
                     src={image}
@@ -65,7 +65,7 @@ const ProjectDialog = ({ index, project }: IProps) => {
           </Carousel>
           <p className="text-[#adadad]">{project.description}</p>
           <div className="flex flex-wrap gap-2">
-            {project.tech_stacks.map((tech: string, techIndex: number) => (
+            {project.tech_stacks?.map((tech: string, techIndex: number) => (
               <Badge
                 key={`project-tech-${techIndex + 1}`}
                 variant="secondary"

@@ -13,6 +13,13 @@ export const CPortfolio = zod.object({
   work_experiences: zod.array(CWorkExperience),
   educations: zod.array(CEducation),
   licences_and_certifications: zod.array(CLicenseAndCertification),
-  skills: CSkill,
+  skills: zod.array(CSkill),
   projects: zod.array(CProject),
 });
+
+export type TPortfolio = zod.infer<typeof CPortfolio>;
+
+export interface IPortfolioStore {
+  portfolio: TPortfolio;
+  setPortfolio: (portfolio: TPortfolio) => void;
+}

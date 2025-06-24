@@ -1,7 +1,9 @@
+import { Link } from "@remix-run/react";
 import { Github, Linkedin, Menu, Mountain } from "lucide-react";
 import { useState } from "react";
 import { Button } from "~/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "~/components/ui/sheet";
+import { usePortfolioStore } from "~/stores/portfolio.store";
 
 const navItems = [
   "About",
@@ -10,11 +12,11 @@ const navItems = [
   "Licenses & Certifications",
   "Skills",
   "Projects",
-  "test",
 ];
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const portfolio = usePortfolioStore((state) => state.portfolio);
 
   return (
     <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#363636] px-4 md:px-10 py-3 sticky top-0 bg-[#1a1a1a] z-10">
@@ -25,24 +27,36 @@ export const Header = () => {
       <nav className="hidden md:flex flex-1 justify-end gap-8 items-center">
         <div className="flex items-center gap-6 lg:gap-9">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item}
-              href={`#${item
+              to={`#${item
                 .toLowerCase()
                 .replace(/ & /g, "-")
                 .replace(/ /g, "-")}`}
               className="text-sm font-medium hover:underline"
             >
               {item}
-            </a>
+            </Link>
           ))}
         </div>
         <div className="flex gap-2">
-          <Button variant="ghost" size="icon">
-            <Github className="h-5 w-5" />
+          <Button variant="ghost" size="icon" asChild>
+            <Link
+              to={portfolio.summary?.github_url as string}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github className="h-5 w-5" />
+            </Link>
           </Button>
-          <Button variant="ghost" size="icon">
-            <Linkedin className="h-5 w-5" />
+          <Button variant="ghost" size="icon" asChild>
+            <Link
+              to={portfolio.summary?.linkedin_url as string}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Linkedin className="h-5 w-5" />
+            </Link>
           </Button>
         </div>
       </nav>
@@ -60,25 +74,36 @@ export const Header = () => {
           >
             <nav className="grid gap-6 text-lg font-medium mt-8">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item}
-                  href={`#${item
+                  to={`#${item
                     .toLowerCase()
                     .replace(/ & /g, "-")
                     .replace(/ /g, "-")}`}
-                  className="hover:underline"
-                  onClick={() => setIsOpen(false)}
+                  className="text-sm font-medium hover:underline"
                 >
                   {item}
-                </a>
+                </Link>
               ))}
             </nav>
             <div className="flex gap-2 mt-6">
-              <Button variant="ghost" size="icon">
-                <Github className="h-5 w-5" />
+              <Button variant="ghost" size="icon" asChild>
+                <Link
+                  to={portfolio.summary?.github_url as string}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="h-5 w-5" />
+                </Link>
               </Button>
-              <Button variant="ghost" size="icon">
-                <Linkedin className="h-5 w-5" />
+              <Button variant="ghost" size="icon" asChild>
+                <Link
+                  to={portfolio.summary?.linkedin_url as string}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </Link>
               </Button>
             </div>
           </SheetContent>
